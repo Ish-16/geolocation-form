@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geolocation Capture</title>
+</head>
+<body>
+    <h2>Capture Your Location</h2>
+    <button onclick="getLocation()">Share Location</button>
+    <p id="location"></p>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById("location").innerHTML = 
+            "Latitude: " + position.coords.latitude + 
+            "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+</body>
+</html>
